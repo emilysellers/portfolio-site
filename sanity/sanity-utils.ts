@@ -1,4 +1,4 @@
-import { createClient } from "next-sanity";
+import { createClient, groq } from "next-sanity";
 
 export async function getProjects() {
   // use next-sanity package to create client that can read from our content link
@@ -7,4 +7,16 @@ export async function getProjects() {
     dataset: "production",
     apiVersion: "2023-07-26",
   });
+
+  return client.fetch(
+    groq`*[_type == "project"]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current,
+        "image": image.asset->url,
+        url,
+        content
+    }`
+  );
 }
