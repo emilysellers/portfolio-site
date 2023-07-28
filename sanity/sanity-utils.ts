@@ -1,6 +1,7 @@
+import { Project } from "@/types/Project";
 import { createClient, groq } from "next-sanity";
 
-export async function getProjects() {
+export async function getProjects(): Promise<Project[]> {
   // use next-sanity package to create client that can read from our content link
   const client = createClient({
     projectId: "13glcfob",
