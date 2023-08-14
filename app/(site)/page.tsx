@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <div>
       <h1 className="text-7xl font-extrabold">
-        Hey there, I&apos;m{" "}
+        Hi there, I&apos;m{" "}
         <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
           Emily
         </span>
